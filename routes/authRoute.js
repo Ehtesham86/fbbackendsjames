@@ -23,6 +23,9 @@ router.get('/google/callback', passport.authenticate('google', {failureRedirect:
     const accessToken = generateToken(req?.user);
     res.cookie("auth_token",accessToken,{
         httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // true on Vercel
+        maxAge: 1000 * 60 * 60 * 24   ,                  // optional
+
         sameSite:"none",
         secure:true
     })
