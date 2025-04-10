@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 
 const corsOptions = {
-    origin: "https://fbbackendsjames.vercel.app", // Ensure this matches your frontend URL
+    origin: "https://fbbackendsjames.vercel.app/", // Ensure this matches your frontend URL
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type, Authorization"

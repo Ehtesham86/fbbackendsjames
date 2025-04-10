@@ -65,14 +65,10 @@ const loginUser = async(req,res) =>{
         const accessToken = generateToken(user);
 
         res.cookie("auth_token",accessToken,{
-            // httpOnly: true,
-            sameSite:"none",
-            // secure:true
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // true on Vercel
-            maxAge: 1000 * 60 * 60 * 24   ,                  // optional
-    
-         })
+            sameSite:"none",
+            secure:true
+        })
 
 
         return response(res,201,"User logged in successfully",{
