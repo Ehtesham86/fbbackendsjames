@@ -19,11 +19,15 @@ const server = http.createServer(app);
 
 
 const corsOptions = {
-    origin: "https://fbbackendsjames.vercel.app/", // Ensure this matches your frontend URL
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Content-Type, Authorization"
+  origin: [
+    "http://localhost:3000",               // for local development
+    "https://your-frontend.vercel.app"     // deployed frontend domain
+  ],
+  credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ["Content-Type", "Authorization"]
 };
+
 const io = socketIO(server, {
     cors: corsOptions
   });
